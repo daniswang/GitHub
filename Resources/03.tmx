@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="New_Town_Ex" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="New_Town_Ex.png" trans="ff00ff" width="544" height="416"/>
+ </tileset>
+ <layer name="Background" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztzsO2HQEUQMEb27ZtOy+2bdu2bdu27eTTUj/Q0+43OHutmu8CuVyuIIUoTBGKUozilKAkpShNGcpSjvK5/FMFKlKJylShKtWoTg1qUova1KEu9aif/m5iDWhIIxrThKY0ozktaEkrWtOGtrSjfQa/SXWgI53oTBe60o3u9KAnvehNH/qSR7/0dxPrzwAGMojBDGEowxjOCEYyitGMYSzjMvhNajwTmMgkJjOFqUxjOjOYySxmM4e5zEt/N7H5LGAhi1jMEpayjOWsYCWrWM0a1rIug9+k1rOBjWxiM1vYyja2s4Od7GI3e9jLvvR3E9vPAQ5yiMMc4SjHOM4JTnKK05zhLOcy+E3qPBe4yCUuc4WrXOM6N7jJLW5zh7vcS383sfs84CGPeMwTnvKM57zgJa94zRve8i6D36Te84GPfOIzX/jKN77zg5/84jd/+Mu/9HejKIqiKIqiKIqiKIqiKIqiKIqiKIqifNZ/afRIYQ==
+  </data>
+ </layer>
+</map>

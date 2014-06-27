@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="New_Town_Ex" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="New_Town_Ex.png" trans="ff00ff" width="544" height="416"/>
+ </tileset>
+ <layer name="background" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1MOSXlEUgNGObdu2nY5t27Zt2046tu1O59GyUvX/D9CDrtx07a9qDe6uM9jnDk5GRhRFURRFURRFURRFURRFUfQ/NiufmJ1P/Ov/mHQFKEghClOEohSjOCUoSSlKU4aylKN8AvZPq0BFKlGZKlSlGtWpQU1qUZs61KUe9ROwf1oDGtKIxjShKc1oTgta0orWtKEt7WifgP3TOtCRTnSmC13pRnd60JNe9KYPfcmkXwL2T+vPAAYyiMEMYSjDGM4IRjKK0YxhLOMSsH/aeCYwkUlMZgpTmcZ0ZjAzdf7v2zmHuczLSM67O58FLGQRi1nCUpaxnBWsZBWrWcNa1iXoHuvZwEY2sZktbGUb29nBTnaxmz3sZV+C7rGfAxzkEIc5wlGOcZwTnOQUpznDWc6lvpPgPBe4yCUuc4WrXOM6N7jJLbK4zR3upma5kZVH7nGfBzzkEY95wlOe8ZwXvOQVr3nD29QsN37kkXe85wMf+cRnvvCVb3xPnf1JNr/I4Xdqlhs5IVGyQwj53h/ttTQN
+  </data>
+ </layer>
+ <objectgroup name="Object-Player" width="50" height="50">
+  <object name="PlayerShowUpPoint" x="899" y="1280" width="31" height="31"/>
+ </objectgroup>
+</map>

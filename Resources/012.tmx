@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="New_Town_Ex" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="New_Town_Ex.png" trans="ff00ff" width="544" height="416"/>
+ </tileset>
+ <tileset firstgid="193" name="BlueTownv2_byLunarea" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="BlueTownv2_byLunarea.png" trans="ff00ff" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="418" name="NewY" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="NewY.png" trans="ff00ff" width="256" height="1600"/>
+ </tileset>
+ <layer name="BackGround" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1GVvFFEYhuFhcXdpsQpQASpABXd31+Lu7i7FizvUvVvFrfRXECDBEuQD8B+4m55JNpspu+1soRPeJ7kymeycc94nmVlNk0gkEomk4hlpcdLDM+JtmpaARCQhGSlItVmrRxrzpiMDmchCNnIs1sPOvLnIQz4KUIgii/XwlP+9Rw0DvApaTdRCbdRBXdRDfTRAQzRCYzRBUzRTV2djK8BVj9cM90Z5i3fqvW1uoAVaohVaow3aoh284I326ICO6ITO8CmHJ3u8Z+4P+IhP+Kx6+DnxVVd/dEFXdEMAAhGEYHRHD/RECEIRht0GHOf04lxvW+V7fGHtV3zDd4f/kFgn4eiF3uiDCEQiCtHoi37ojwEYiEEYjCEG+8U6zenD2b7wg79BHz3zy/GDNT/xy1b+M6WGYhiGY4TqOgqjMUadNQ7jMQETMQmTMeUP++oCOD8QQQg2mMVVD3dNxTRMxwzMxCzMxhzMxTz17ALEYCEWYbEb+4cweyjCEF6FPZZgKZZhOVZgJVZhNdZgLdZhPTZgIzZhsxv7RzB7JKIQXYU9tmArtmE7dmAndmll3+we7MU+7McBHMQhHHZj/xgXv3uqxxEcxTEcxwmt7Fs9iVM4jTM4i3M4jzhcwEV1X1lxDj3M7FPqEi7jCq7iGq7jBm7iFm7jDu7iHuKRgER1b4aeXJOSkIwUpCIN6chAJrKQjRzY1Zo85KMAL0zSYzepEEW4jwd4iEd4jCd4imd4rs59iWK8QokHe5jd51/TU2xx0qN6kR7Vi54Si5NIJBKJRCKRSCSSv53fNzxKBg==
+  </data>
+ </layer>
+ <objectgroup name="Object-Player" width="50" height="50">
+  <object name="PlayerShowUpPoint" x="705" y="767" width="30" height="32"/>
+ </objectgroup>
+</map>

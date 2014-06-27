@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="40" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="New_Town_Ex" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="New_Town_Ex.png" trans="ff00ff" width="544" height="416"/>
+ </tileset>
+ <tileset firstgid="193" name="meta_tiles" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="meta_tiles.png" trans="ff00ff" width="67" height="34"/>
+  <tile id="0">
+   <properties>
+    <property name="Blockage" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="195" name="NewY" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="NewY.png" trans="ff00ff" width="256" height="1600"/>
+ </tileset>
+ <layer name="background" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt01WPFjEUBuAPd2dxd3e3xd0ddnF3d3d3d3d3X/hpPAlzwcVkMpmEvSBz8aQ9bU7ytk1zMplMTiqVSqVS/5lBgQIhilOCkpSiNGWCvYIUojBFKEqxiJ6ylKN8MA8zI0RUvmpUpwY1qUVtKlCRSlQmiypUjeipQ13qBWOYqHz1QzSjOS1oSStaB3sNaEgjGtOEphE9bWhLuwhR+bJCdKM7PehJL3rTng50pBOd6ULXiJ4+ZNM3Qli+3AT60Z8BDAzON5ghDGUYwxnBSEYxmjGMDdbjSpJvHOOZwEQmMZkpTGUa0zN//l9ucA8zmcXsv94sjiT55jCXecxnAQtZxGKWsJRlLGcFK1nF6nzIt4a1rGM9G9jIJjazha1sYzs72MkududDvj3sZR/7OcBBDnGYIxzlGMc5wUlOcTqo4zqT0FnOcZ4LXOQSl7nCVa5xnRvc5Ba3g3lcdxK6yz3u84CHPOIxT3jKM57zgpe84nVQx/Umobe84z0f+MgnPvOFr3zjOz/I4ye/gvW48lKpVOof+Q20lx53
+  </data>
+ </layer>
+ <objectgroup name="Object-Player" width="40" height="30">
+  <object name="PlayerShowUpPoint" x="609" y="639" width="31" height="31"/>
+ </objectgroup>
+ <layer name="blockage01" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt1E0GADAMhNHc/1a9WbddlPwxIr7HLErD0KgZAAB7nU8ydzsz3uz2fhHKflWdftCKvJN3pt/cPZ/Y6TW9n0rkXyeEkEouASsmFg==
+  </data>
+ </layer>
+</map>

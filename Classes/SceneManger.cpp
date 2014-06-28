@@ -25,7 +25,7 @@ void SceneManger::Go(Layer* layer)
 
 	if(pDir->getRunningScene())
 	{
-		pDir->replaceScene(newScene);
+		pDir->replaceScene( TransitionFade::create(1.2f, newScene,Color3B::WHITE));
 	}
 	else
 	{

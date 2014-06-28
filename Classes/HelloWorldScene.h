@@ -30,15 +30,6 @@ public:
 	void SetPlayerPostion(Point map_pos);
 	bool IsMapPointPass(Point map_pos);
 	//
-	/*bool Move(int FromRow, int FromCol, int ToRow, int ToCol);
-	bool AStarPathFind(int source_Row, int source_Col, PathStep* DesStep);
-	bool Add2OpenList(PathStep* addStep);
-	bool Add2CloseList(PathStep* addStep, PathStep* DesStep);
-	PathStep* FindMinF_OpenList();
-	bool AddNeighbour2OpenList(PathStep* sourceStep, PathStep* DesStep);
-	void SetStepGHAndFather(PathStep* father, PathStep* step, PathStep* desStep);
-	void DeleteFromOpenList();
-	bool CheckNeighborStep(int row, int col, PathStep* fatherStep);*/
 	void PopStepAndAnimate();
 	private:
 		TMXTiledMap* m_TileMap;

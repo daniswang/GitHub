@@ -126,8 +126,8 @@ void HelloWorld::SetViewPointCenter(Vec2 Pos)
 		posX = -(m_TileMap->getContentSize().width - winSize.width);
 
 	m_TileMap->setPosition(Vec2(posX, posY));
-	//MoveTo *moveAction = MoveTo::create(1, PostionForTileCoord(Vec2(posX, posY)));
-	//m_TileMap->runAction(moveAction);
+	MoveTo *moveAction = MoveTo::create(3, Vec2(posX, posY));
+	m_TileMap->runAction(moveAction);
 }
 
 void HelloWorld::onTouchEnded(Touch* touch, Event* unused_event)

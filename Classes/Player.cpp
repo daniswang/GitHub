@@ -78,6 +78,8 @@ void Player::RunAnimation(Animation *animation)
 //移动
 bool Player::Move(int FromRow, int FromCol, int ToRow, int ToCol)
 {
+	CCLog("begin move\n");
+	Stop();
 	PathStep* desStep = PathStep::CreatWithIndex(0, 0);
 	desStep->InitWithIndex(ToRow, ToCol);
 
@@ -91,7 +93,7 @@ bool Player::Move(int FromRow, int FromCol, int ToRow, int ToCol)
 			if(step->getFatherStep())
 			{
 				m_FoundPathList.insert(0, step);
-				CCLog("index %d, %d\n", step->getRow(), step->getCol());
+				///CCLog("index %d, %d\n", step->getRow(), step->getCol());
 			}
 			step = step->getFatherStep();
 		}while(step);
@@ -109,13 +111,13 @@ bool Player::AStarPathFind(int source_Row, int source_Col, PathStep* DesStep)
 	PathStep* sourceStep = PathStep::CreatWithIndex(0, 0);
 	sourceStep->InitWithIndex(source_Row, source_Col);
 
-	CCLog("delte begintime %lld\n", GetCurrentTime());
-	m_OpenList.clear();
-	m_CloseList.clear();
-	CCLog("delte endtime %lld\n", GetCurrentTime());
+	//CCLog("delte begintime %lld\n", GetCurrentTime());
+	/*m_OpenList.clear();
+	m_CloseList.clear();*/
+	//CCLog("delte endtime %lld\n", GetCurrentTime());
 	m_OpenList.pushBack(sourceStep);
 
-	CCLog("begin time %lld\n", GetCurrentTime());
+	//CCLog("begin time %lld\n", GetCurrentTime());
 	do
 	{
 		PathStep* minStep = FindMinF_OpenList();
@@ -135,11 +137,21 @@ bool Player::AStarPathFind(int source_Row, int source_Col, PathStep* DesStep)
 
 	}while(m_OpenList.size() > 0);
 
-	CCLog("end time %lld\n", GetCurrentTime());
+	//CCLog("end time %lld\n", GetCurrentTime());
 	if(getFoundPath())
 		return true;
 
 	return false;
+}
+
+void Player::Stop()
+{
+	this->stopAllActions();
+	m_OpenList.clear();
+	m_CloseList.clear();
+	m_FoundPathList.clear();
+	CCLog("clear all!!\n");
+
 }
 
 // true  目标点在openlist

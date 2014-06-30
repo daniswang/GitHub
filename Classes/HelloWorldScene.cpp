@@ -126,7 +126,7 @@ void HelloWorld::SetViewPointCenter(Vec2 Pos)
 		posX = -(m_TileMap->getContentSize().width - winSize.width);
 
 	m_TileMap->setPosition(Vec2(posX, posY));
-	MoveTo *moveAction = MoveTo::create(3, Vec2(posX, posY));
+	MoveTo *moveAction = MoveTo::create(10, Vec2(posX, posY));
 	m_TileMap->runAction(moveAction);
 }
 
@@ -234,12 +234,13 @@ void HelloWorld::PopStepAndAnimate()
 	 // 检查是否仍有路径步骤需要前进
 	if (m_Player->m_FoundPathList.size() == 0)
     {
+		CCLOG("foundlist is NULL!!!\n");
         return;
     }
     // 得到下一步移动的步骤
     PathStep *s = m_Player->m_FoundPathList.at(0);
     // 准备动作和回调
-	MoveTo *moveAction = MoveTo::create(0.9, PostionForTileCoord(Point(s->getRow(), s->getCol())));
+	MoveTo *moveAction = MoveTo::create(2, PostionForTileCoord(Point(s->getRow(), s->getCol())));
     CallFunc *moveCallback = CallFunc::create(CC_CALLBACK_0(HelloWorld::PopStepAndAnimate, this));
 
 	auto playerPos = m_Player->getPosition();
@@ -275,6 +276,7 @@ void HelloWorld::PopStepAndAnimate()
 		}
 	}
 	SetPlayerPostion(playerPos);
+	CCLog("player now pos row %d, col %d\n", s->getRow(), s->getCol());
 	SetViewPointCenter(m_Player->getPosition());
     // 移除步骤
     m_Player->m_FoundPathList.erase(0);

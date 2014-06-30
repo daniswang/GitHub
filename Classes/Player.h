@@ -23,6 +23,7 @@ public:
 
 	
 	bool Move(int FromRow, int FromCol, int ToRow, int ToCol);
+	void Stop();
 	bool AStarPathFind(int source_Row, int source_Col, PathStep* DesStep);
 	bool Add2OpenList(PathStep* addStep);
 	bool Add2CloseList(PathStep* addStep, PathStep* DesStep);

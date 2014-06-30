@@ -43,6 +43,7 @@ private:
     CC_SYNTHESIZE(Animation*, _facingRightAnimation, Right);
     CC_SYNTHESIZE(Animation*, _curAnimation, CurrentA);
    CC_SYNTHESIZE( Action*, _curAnimate, Animate);
+   CC_SYNTHESIZE( Action*, _curMoveto, MoveTo);
    TMXTiledMap* _TileMap;
    TMXLayer* _BlockAge;
 

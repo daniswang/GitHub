@@ -22,6 +22,7 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 
+	virtual void update(float dt);
 	void SetViewPointCenter(Vec2 Pos);
 	void onTouchEnded(Touch* touch, Event* unused_event);
 	void TouchPoint2MapPoint(Point* touchpoint);
@@ -29,6 +30,7 @@ public:
 	Point PostionForTileCoord(Point mapCoord);
 	void SetPlayerPostion(Point map_pos);
 	bool IsMapPointPass(Point map_pos);
+	void InitMapPosByPlayerPos(Vec2 Pos);
 	//
 	void PopStepAndAnimate();
 	private:

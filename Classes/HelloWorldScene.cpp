@@ -82,7 +82,7 @@ bool HelloWorld::init()
 	m_BlockAge = m_TileMap->layerNamed("blockage01");
 	m_BlockAge->setVisible(false);
 	addChild(m_TileMap, -1);
-	
+	scheduleUpdate();
 	//init player
 	TMXObjectGroup* object = m_TileMap->getObjectGroup("Object-Player");
 	auto PlayerShowUpPoint = object->getObject("PlayerShowUpPoint");
@@ -94,7 +94,7 @@ bool HelloWorld::init()
 	float py = y + m_TileMap->getTileSize().height / 2;
 	m_Player = Player::Create(Point(px, py), m_TileMap, m_BlockAge);
 	m_TileMap->addChild(m_Player);
-	SetViewPointCenter(m_Player->getPosition());
+	InitMapPosByPlayerPos(m_Player->getPosition());
 
 	//add listener
 	auto listener = EventListenerTouchOneByOne::create();
@@ -105,6 +105,10 @@ bool HelloWorld::init()
     return true;
 }
 
+void HelloWorld::update(float dt)
+{
+		//m_TileMap->setPositionX(m_TileMap->getPositionX() - 1);
+}
 //设置player在地图中间
 //不能超过地图边界
 void HelloWorld::SetViewPointCenter(Vec2 Pos)
@@ -125,8 +129,7 @@ void HelloWorld::SetViewPointCenter(Vec2 Pos)
 	if(m_TileMap->getContentSize().width - Pos.x < winSize.width / 2)
 		posX = -(m_TileMap->getContentSize().width - winSize.width);
 
-	m_TileMap->setPosition(Vec2(posX, posY));
-	MoveTo *moveAction = MoveTo::create(10, Vec2(posX, posY));
+	MoveTo *moveAction = MoveTo::create(1, Vec2(posX, posY));
 	m_TileMap->runAction(moveAction);
 }
 
@@ -141,34 +144,6 @@ void HelloWorld::onTouchEnded(Touch* touch, Event* unused_event)
 
 	Point TargettileCoord = TileCoordForPostion(touchLocation);
 
-	//auto playerPos = m_Player->getPosition();
-	//
-	//auto diff = touchLocation - playerPos;
-
-	//if(abs(diff.x) > abs(diff.y))
-	//{
-	//	if(diff.x >= EPSINON)
-	//	{
-	//		playerPos.x += m_TileMap->getTileSize().width / 2;
-	//		//m_Player->runAction(action2);
-	//	}
-	//	else
-	//	{
-	//		playerPos.x -= m_TileMap->getTileSize().width / 2;
-	//		//m_Player->runAction(action1);
-	//	}
-	//}
-	//else
-	//{
-	//	if(diff.y >= EPSINON)
-	//	{
-	//		playerPos.y += m_TileMap->getTileSize().height / 2;
-	//	}
-	//	else
-	//	{
-	//		playerPos.y -= m_TileMap->getTileSize().height / 2;
-	//	}
-	//}
 	Point PlayerCoord = TileCoordForPostion(Point(m_Player->getPosition().x, m_Player->getPosition().y));
 	m_Player->Move(PlayerCoord.x, PlayerCoord.y, TargettileCoord.x, TargettileCoord.y);
 	PopStepAndAnimate();
@@ -234,14 +209,12 @@ void HelloWorld::PopStepAndAnimate()
 	 // 检查是否仍有路径步骤需要前进
 	if (m_Player->m_FoundPathList.size() == 0)
     {
+		m_Player->Stop();
 		CCLOG("foundlist is NULL!!!\n");
         return;
     }
     // 得到下一步移动的步骤
     PathStep *s = m_Player->m_FoundPathList.at(0);
-    // 准备动作和回调
-	MoveTo *moveAction = MoveTo::create(2, PostionForTileCoord(Point(s->getRow(), s->getCol())));
-    CallFunc *moveCallback = CallFunc::create(CC_CALLBACK_0(HelloWorld::PopStepAndAnimate, this));
 
 	auto playerPos = m_Player->getPosition();
 	Point touchLocation =PostionForTileCoord(Point(s->getRow(), s->getCol()));
@@ -275,11 +248,16 @@ void HelloWorld::PopStepAndAnimate()
 			m_Player->RunAnimation(m_Player->getForWard());
 		}
 	}
-	SetPlayerPostion(playerPos);
-	CCLog("player now pos row %d, col %d\n", s->getRow(), s->getCol());
+
+	CCLog("player now pos row %f, col %f\n", m_Player->getPositionX(), m_Player->getPositionY());
 	SetViewPointCenter(m_Player->getPosition());
     // 移除步骤
     m_Player->m_FoundPathList.erase(0);
+
+	   // 准备动作和回调
+	MoveTo *moveAction = MoveTo::create(1, PostionForTileCoord(Point(s->getRow(), s->getCol())));
+	m_Player->setMoveTo(moveAction);
+    CallFunc *moveCallback = CallFunc::create(CC_CALLBACK_0(HelloWorld::PopStepAndAnimate, this));
     // 运行动作
     m_Player->runAction(Sequence::create(moveAction, moveCallback, nullptr));
 }
@@ -296,4 +274,25 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
+}
+
+void HelloWorld::InitMapPosByPlayerPos(Vec2 Pos)
+{
+	auto winSize = Director::getInstance()->getWinSize();
+	float posY = winSize.height / 2 - Pos.y;
+	float posX = winSize.width / 2 - Pos.x;
+	
+	if(posY >= EPSINON)//下边界
+		posY = 0;
+	if(posX > EPSINON)//左边界
+		posX = 0;
+
+	//上边界
+	if(m_TileMap->getContentSize().height - Pos.y < winSize.height / 2)
+		posY = -(m_TileMap->getContentSize().height - winSize.height);
+	//右边界
+	if(m_TileMap->getContentSize().width - Pos.x < winSize.width / 2)
+		posX = -(m_TileMap->getContentSize().width - winSize.width);
+
+	m_TileMap->setPosition(Point(posX, posY));
 }

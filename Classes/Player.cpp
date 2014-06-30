@@ -4,7 +4,7 @@ USING_NS_CC;
 
 const float EPSINON = 0.000001;
 
-Player::Player():m_FoundPath(false),_curAnimation(NULL),_curAnimate(NULL)
+Player::Player():m_FoundPath(false),_curAnimation(NULL),_curAnimate(NULL),_curMoveto(NULL)
 {
 }
 
@@ -61,9 +61,9 @@ Animation* Player::CreatePlayerAnimation(const char *animType)
 //²¥·ÅplayerÒÆ¶¯¶¯»­
 void Player::RunAnimation(Animation *animation)
 {
-	if (_curAnimation == animation){
+	/*if (_curAnimation == animation){
         return;
-    } 
+    } */
   
 	 _curAnimation = animation;
     if (_curAnimate != nullptr)
@@ -146,7 +146,10 @@ bool Player::AStarPathFind(int source_Row, int source_Col, PathStep* DesStep)
 
 void Player::Stop()
 {
+	/*if(_curMoveto)
+		stopAction(_curMoveto);*/
 	this->stopAllActions();
+
 	m_OpenList.clear();
 	m_CloseList.clear();
 	m_FoundPathList.clear();
